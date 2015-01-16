@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <!--<link rel="shortcut icon" href="../../assets/ico/favicon.ico">-->
+
+        <title>Sistema de Registro civil</title>
+ 
+         <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" >
+
+        <!-- Custom styles for this template -->
+        <link href="../../assets/css/dashboard.css" rel="stylesheet">
+        
+        <link rel="stylesheet" href="../../resource/css/icomoon/style.css"/>
+        <link rel="stylesheet" href="../../resource/css/main.css"/>
+        <link rel="stylesheet" href="../../resource/css/joint.css"/>
+        <link rel="stylesheet" href="../../resource/css/jquery-ui-1.10.3.custom.min.css"/>
+        
+        <script src="../../resource/js/jquery.min.js"></script>
+        <script src="../../resource/js/main.js"></script>
+        <script src="../../resource/js/bootstrap.js"></script>
+        <script src="../../resource/js/moment.js"></script>
+
+
+        <!-- revisar los de abajo -->
+        <script src="../../resource/js/joint.js"></script>
+        <script src="../../resource/js/jquery-ui-1.10.3.custom.min.js"></script>
+        <script src="../../resource/js/jquery.ui.touch.js"></script>
+        <script src="../../resource/js/jquery.dataTables.min.js"></script>
+        
+      
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Sistemas de Registro Civil</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Configuracion</a></li>
+                        <li><a href="#">Salir</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right">
+                        <input type="text" class="form-control" placeholder="Buscar...">
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        
+           <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 col-md-2 sidebar">
+                    <ul class="nav nav-sidebar">
+                        <li class="active"><a href="#">Vista General</a></li>
+                        <li><a href="#">Reportes</a></li>
+                        <li><a href="#">Beneficiarios</a></li>
+                        <li><a href="#">Tickets</a></li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
+                        <li><a href="">Usuarios</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                    <h1 class="page-header">Vista General</h1>
+                       
+
+                    
+                    
+        
+                  
+<div class="row-fluid">
+    <div class="span5">
+        <div class="widget">
+            <div class="widget-header">
+                <div class="title">
+                    <span class="icon-table"></span> Registrar Nuevo Proveedor
+                </div>
+            </div>
+        </div>
+        <div class="widget-body">
+            <form id="form-proveedor-datos" class="form-horizontal no-margin">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="widget">
+                            <div class="widget-header">
+                                <div class="title">
+                                    <span class="icon-pencil-2"></span> Datos proveedor
+                                </div>
+                            </div>
+                            <div class="widget-body">
+
+                                <div class="control-group ruc">
+                                    <label class="control-label">Nombre Proveedor:</label>
+                                    <div class="controls">
+                                        
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Direccion:</label>
+                                    <div class="controls">
+                                        <input class="input-block-level" type="text"  name="prove_direccion">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Telefono/cel:</label>
+                                    <div class="controls">
+                                        <input class="input-block-level" type="text"  pattern="^[0-9]{1,9}$" name="prove_telefono">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Telefono2/cel2:</label>
+                                    <div class="controls">
+                                        <input class="input-block-level" type="text"  pattern="^[0-9]{1,9}$"   name="prove_telefono2">
+                                    </div>
+                                </div>
+                                <!--</form>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-actions no-margin">
+                    <button class="btn btn-primary" id="btn-nuevo-proveedor">Guardar !</button>
+                    <button class="btn btn-default" id="cancelar-producto">Cancelar</button>
+                </div>
+
+        
+    </div>
+</div>
+    
+</div>    
+<script>
+											$(function() {
+												$('#c-drag').click(function() {
+													if (this.checked)
+														$('#prov_perseccion').val(1);
+													else
+														$('#prov_perseccion').val(0);
+												}).attr('checked', false);
+
+												$('#agregar-producto').click(function(e) {
+													e.preventDefault();
+													var html = '<tr><td><input type="text" name="nombre_producto" class="name_prod" onKeyUp="this.value=this.value.toUpperCase();"></td><td><select class="input-medium" name="tipo_producto"><option value="Kg.">Kgs.</option><option value="Lt.">Lts</option><option value="Gr.">Grs.</option><option value="Unid.">Unds.</option></select></td><td><select class="input-medium" name="tipo_stock" disabled><option value="0">Manual</option><option value="1">Automatico</option></select></td><td><button class="btn btn-danger eliminar-producto">Eliminar</button></td></tr>';
+													$('#proveedor-producto-body').append(html);
+												});
+												$('body').on('click', '.eliminar-producto', function() {
+													$(this).parent().parent().remove();
+												});
+												$('body').on('change', '.name_prod', function() {
+
+												});
+
+												$('#btn-nuevo-proveedor').click(function() {
+													var prov_datos = $('#form-proveedor-datos').serializeArray();
+													//console.log(prov_datos);
+													var btn = this;
+													$(btn).attr("disabled", "disabled");
+													$.ajax({
+														url: $.uri('main/proveedor/proveedor/registrar_proveedor'),
+														data: {'datos': prov_datos},
+														dataType: 'Json',
+														type: 'POST',
+														success: function(res) {
+															alert(res.msg);
+															if (res.state === 'success') {
+																location.reload();
+															}
+														}
+													});
+													$(btn).removeAttr("disabled");
+												});
+
+												var prod = [123];
+												$(document).on("focus", '.name_prod', function(e) {
+													var $this = this;
+													if (!$(this).data("autocomplete")) {
+														$(this).autocomplete({
+															source: prod,
+															select: function() {
+																$($this).parent().next().next().children().val('1');
+															}
+														});
+													}
+												});
+
+											});
+</script>
+     
+                        
+                        
+                        
+                        
+                        
+                    
+                </div>
+            </div>
+            </div>
+
+            <!-- Bootstrap core JavaScript
+            ================================================== -->
+            <!-- Placed at the end of the document so the pages load faster -->
+            <script src='../assets/js/jquery-1.11.1.min.js'></script>
+            <script src="../assets/js/bootstrap.min.js"></script>
+            <script src="../assets/js/docs.min.js"></script>
+    </body>
+</html>
